@@ -30,7 +30,4 @@ public class ProductDetail {
     private Boolean isDeleted = false;
     @NotNull(message = "Quantity can't be null.")
     private Integer quantity;
-    @JsonBackReference
-    @ManyToOne
-    private Order order;
 }

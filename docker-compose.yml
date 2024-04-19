@@ -1,0 +1,48 @@
+version: '3.8'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql-container
+    restart: always
+    environment:
+      MYSQL_DATABASE: ecomm_db
+      MYSQL_USER: renil
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_PASSWORD: root
+    ports:
+      - "3307:3306"
+    networks:
+      - internal_network
+  edge-service:
+    image: renil/edge-server:1.0.0
+    container_name: edge-container
+    ports:
+      - "8080:8080"
+    networks:
+      - internal_network
+  product-service:
+    image: renil/product-service:1.0.0
+    container_name: product-container
+    networks:
+      - internal_network
+  order-service:
+    image: renil/order-service:1.0.0
+    container_name: order-container
+    networks:
+      - internal_network
+  image-service:
+    image: renil/image-service:1.0.0
+    container_name: image-container
+    networks:
+      - internal_network
+  eureka-service:
+    image: renil/eureka-service:1.0.0
+    container_name: eureka-container
+    ports:
+      - "8761:8761"
+    networks:
+      - internal_network
+networks:
+  internal_network:
+    external: false
+    name: renil-network

@@ -72,11 +72,11 @@
                 <version>3.4.1</version>
                 <configuration>
                     <to>
-                        <image>aanal/edge-server:1.0.1</image>
+                        <image>renil/edge-server:1.0.1</image>
                     </to>
                     <container>
                         <jvmFlags>
-                            <jvmFlag>-Dspring.profiles.active=prod</jvmFlag>
+                            <jvmFlag>-Dspring.profiles.active=dev</jvmFlag>
                         </jvmFlags>
                     </container>
                 </configuration>

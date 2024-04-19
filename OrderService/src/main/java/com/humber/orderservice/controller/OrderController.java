@@ -1,6 +1,6 @@
 package com.humber.orderservice.controller;
 
-import com.humber.orderservice.entity.Order;
+import com.humber.orderservice.entity.Orders;
 import com.humber.orderservice.service.OrderServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -19,13 +19,13 @@ public class OrderController {
     }
 
     @PostMapping("/placeOrder")
-    public ResponseEntity<Order> placeNewOrder(@RequestBody Order order) {
+    public ResponseEntity<Orders> placeNewOrder(@RequestBody Orders orders) {
         log.info("OrderController :: placeNewOrder");
-        return ResponseEntity.ok(orderServiceImpl.placeNewOrder(order));
+        return ResponseEntity.ok(orderServiceImpl.placeNewOrder(orders));
     }
 
     @GetMapping("/getAll")
-    public ResponseEntity<List<Order>> getAllOrderDetails() {
+    public ResponseEntity<List<Orders>> getAllOrderDetails() {
         log.info("OrderController :: getAllOrderDetails");
         return ResponseEntity.ok(orderServiceImpl.getAllOrders());
     }
